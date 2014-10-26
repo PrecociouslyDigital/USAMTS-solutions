@@ -1,0 +1,218 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% USE THIS FILE TO SUBMIT YOUR SOLUTIONS   %%
+%%                                          %%
+%% You must have the usamts.tex file in     %%
+%% the same directory as this file.         %%
+%% You do NOT need to submit the usamts.tex %%
+%% with your solutions.  You only need to   %%
+%% submit this file and the PDF file with   %%
+%% your solutions (and please attach any    %%
+%% images you include)                      %%  
+%%                                          %%
+%% DO NOT ALTER THE FILE usamts.tex         %%
+%%                                          %%
+%% If you have any questions or problems    %%
+%% using this file, or with LaTeX in        %%
+%% general, please go to the LaTeX          %%
+%% forum on the Art Of Problem Solving      %%
+%% web site, and post your problem.         %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DO NOT ALTER THE FOLLOWING LINES
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\include{usamts}
+%% DO NOT ALTER THE ABOVE LINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% If you would like to use Asymptote within this document (which is optional), 
+%% you can find out how at the following URL:
+%%
+%%   http://www.artofproblemsolving.com/Wiki/index.php/Asymptote:_Advanced_Configuration
+%%
+%% As explained there, you will want to uncomment the line below.  But be
+%% sure to check the website because there are several other steps that must 
+%% be followed.
+ \usepackage{asymptote}
+ \usepackage{amsmath}
+ \usepackage{graphicx}
+%% Enter your real name here
+%% Example: \realname{David Patrick}
+\realname{Benjamin Yin}
+
+%% Enter your USAMTS username here
+%% Example: \username{DPatrick}
+%% IMPORTANT
+%% If your username contains one of the following characters:
+%%      # $ ~ _ ^ % { } &
+%% then this character must be preceded by a backslash \
+%% for example: if your user name is math_genius, then the line below should be
+%% \username{math\_genius}
+
+\username{ruiqiu2000}
+
+%% Enter your USAMTS ID# here
+%% Example: \usamtsid{9999}
+\usamtsid{31020}
+
+%% Make sure that the year and round number are correct.
+%% Year 25 is the academic year 2013-14
+\usamtsyear{25}
+\usamtsround{1}
+
+%%
+%% DO NOT ALTER THE FOLLOWING LINE
+\begin{document}
+%% DO NOT ALTER THE PREVIOUS LINE
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% All solutions go in between the \begin{solution} and
+%% the \end{solution} corresponding to the problem
+%% number.  
+%%
+%% For example, suppose Problem 2 is 
+%% "Solve for x: x + 3 = 5".
+%% Your solution would look like this:
+%%
+%% \begin{solution}{2}
+%% If $x+3=5$, then subtract 3 from both
+%% sides of the equation to get $x=5-3=2$, so the 
+%% solution is $x=2$.
+%% \end{solution}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{solution}{1} 
+\end{solution}
+
+\begin{solution}{2}
+We have our six numbers, $x, y, z, x-y, y-z, x-z$, all of which are prime.
+Firstly, $x, y$, and $z$ must be distinct. If they are not distinct, then one of $x-y, y-z,$ or $x-z$ must not be zero, which is not a postive integer.
+Let us then split this problem into two cases:
+
+\textbf{1. None of $x, y, z$ are $2$}
+
+If this is true, then $x, y$ and $z$ must be odd, as there are no even primes other than $2$.
+However, this means that $x-y, y-z, x-z$ must be even, as they are the result of subtracting two odd numbers.
+Therefore, $x-y$ and $y-z$ must both be $2$, since it is the only even prime.
+However, if
+
+\begin{center}
+\begin{cases} x-y = 2 \\ y - z = 2 \end{cases}
+\end{center}
+
+
+Then
+
+\begin{align*}
+x - z &= (x - y) + (y - z)\\
+&= 2 + 2\\
+&= 4
+\end{align*}
+
+Therefore, $x-z$ is not prime, and therefore, if $x, y$ and $z$ are not $2$, then at least one of $x-y, y-z$ or $x-z$ is not prime.
+
+\textbf{2. one of $x, y, z$ is $2$}
+We know that $z$ must be $2$, as $x-z > 0$ and $y-z > 0$, $x > z$ and $y > z$, and $2$ is the smallest prime.
+Because we know $z = 2$, $x-2$ and $y-2$ must be prime. Additionally, $x$ and $y$ are odd, as they are distinct from $z$ and $2$ is the only even prime. 
+Therefore, $x-y$ is even, as it is the result of subtracting two odd numbers. The only solution for $x-y$ is therefore, $2$, and therefore, $x = y + 2$
+
+Since $x = y + 2$ and $y-2$ must be prime, $x-4$ must be prime. 
+
+$x, x-2$ and $x-4$ must all be prime. But this is impossible, as $x, x-2$ and $x-4$ are all distinct $\bmod{3}$, and therefore by pidgeonhole principle, one of them is divisible by $3$
+
+Therefore, there are no triplets $(x, y, z)$ such that $x, y, z, x-y, y-z, x-z$ are all prime.
+
+\end{solution}
+
+\begin{solution}{3} %TODO: revise this.
+a.
+
+Firstly, note that each person in the line's height is a multiple of 5, and every multiple of 5 between 140 and 185 inclusive
+Then, notice that because of this, if some but not all of the people taller than the person we have just placed in the line are in the line, we will not be able to place at least one person in this line.
+The proof is as follows:
+Then, let us prove that if the shortest person not currently placed in the line that is taller than the last person currently in the line 
+(For brevity, let us call this person A), then we cannot finish this line in almost-perfect order.
+Now, because not every person taller than A is in the line, but at least one is, there must be at least one person not in the line
+and taller than A who is at least taller by 10 centimetres (meaning they cannot be placed after that person in almost-perfect order) than everyone who is both
+not in the line and shorter than them. From this, it follows that someone who is not in the line and taller than A must be placed before A can be placed.
+However, every person taller than A is also at least 10 centimetres taller than everyone shorter than A. From this, it follows that none of the people taller than A can be placed
+Therefore, we cannot create an almost-perfect order from this original line.
+
+The one way to order people in a line following the previous condition is, once we place any person in the line, we place every person who is both taller 
+than the current person and also not yet in the line in the line.
+
+The number of ways to count this can be represented as the number of ways to pick someone from the group, then continue picking people shorter than
+the person previously picked until the shortest person is picked. This is equivilent to the number of ways to place sticks
+between the people in the group placed into a line by height, with at most one stick between each stone, as the selection algorithm would
+entail starting from the stick closest to the taller side, and selecting people until you hit another stick or the end of the line, then
+going to the stick closest to the taller side that has not been previously used.
+
+
+So our answer is equal to the number of ways to add sticks between the people in this group. since there are 10 people, our answer is equal to
+$2^{9} = \fbox{512}$
+b.
+The previous problem can be applied to this problem with the exception of the person with height 164. Let us handle the problem
+by splitting it into two cases
+
+\textbf{1. The first person of 164 and 165 selected is 164}
+
+In this case, either the next-selected number is 165, in which case there is 1 way to order the people greater
+than 165, and there are  $2^{8}$ ways to order the people less than 165, From the previous problem. However, if the next number selected is 170, then 
+we have 1 way to order the numbers above 170, and $2^{9}$ ways to order the numbers below 170. From the previous problem, if the next-selected number
+is not one of these two numbers, we cannot complete the line in almost-perfect order.
+
+\textbf{2. The first person of 164 and 165 selected is 165} 
+
+In this case, either the next-selected number is 164, in which case there is 1 way to order the people greater
+than 164, and there are  $2^{8}$ ways to order the people less than 164, From the previous problem. However, if the next number selected is 170, then 
+we have 1 way to order the numbers above 170, and $2^{9}$ ways to order the numbers below 170. From the previous problem, if the next-selected number
+is not one of these two numbers, we cannot complete the line in almost-perfect order.
+
+The grand total then is $2^{8} + 2^{9} + 2^{8} + 2^{9} = 1536$  %check this answer
+\end{solution}
+\begin{solution}{4}
+%% Solution to Problem 4 goes here
+\end{solution}
+
+\begin{solution}{5}
+%% Solution to Problem 5 goes here
+\end{solution}
+
+%%
+%% DO NOT ALTER THE FOLLOWING COMMAND
+\end{document}
+%% DO NOT ALTER THE PREVIOUS COMMAND
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% You may want to run LaTeX on this file   %%
+%% to make sure that it compiles correctly  %%
+%% before you submit it.                    %%
+%%                                          %%
+%% If you run LaTeX on this file before     %%
+%% entering any solutions, the output file  %%
+%% will be blank.  This is normal.          %%
+%%                                          %%
+%% Make sure that the file usamts.tex is    %%
+%% in the same directory as this file.      %%
+%% If the compiler hangs or asks for        %%
+%% fancyhdr.sty when you compile, then go   %%
+%% to the My Forms portion of My USAMTS     %%
+%% at www.usamts.org to download the        %%
+%% fancyhdr.sty file.                       %%
+%%                                          %%
+%% Questions?  Problems?  Go to the LaTeX   %%
+%% forum on www.artofproblemsolving.com     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
