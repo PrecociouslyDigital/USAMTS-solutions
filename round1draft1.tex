@@ -1,0 +1,284 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% USE THIS FILE TO SUBMIT YOUR SOLUTIONS   %%
+%%                                          %%
+%% You must have the usamts.tex file in     %%
+%% the same directory as this file.         %%
+%% You do NOT need to submit the usamts.tex %%
+%% with your solutions.  You only need to   %%
+%% submit this file and the PDF file with   %%
+%% your solutions (and please attach any    %%
+%% images you include)                      %%  
+%%                                          %%
+%% DO NOT ALTER THE FILE usamts.tex         %%
+%%                                          %%
+%% If you have any questions or problems    %%
+%% using this file, or with LaTeX in        %%
+%% general, please go to the LaTeX          %%
+%% forum on the Art Of Problem Solving      %%
+%% web site, and post your problem.         %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DO NOT ALTER THE FOLLOWING LINES
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\include{usamts}
+%% DO NOT ALTER THE ABOVE LINES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% If you would like to use Asymptote within this document (which is optional), 
+%% you can find out how at the following URL:
+%%
+%%   
+%http://www.artofproblemsolving.com/Wiki/index.php/Asymptote:_Advanced_Configurat
+%ion
+%%
+%% As explained there, you will want to uncomment the line below.  But be
+%% sure to check the website because there are several other steps that must 
+%% be followed.
+ \usepackage{asymptote}
+ \usepackage{amsmath}
+ \usepackage{graphicx}
+%% Enter your real name here
+%% Example: \realname{David Patrick}
+\realname{Benjamin Yin}
+
+%% Enter your USAMTS username here
+%% Example: \username{DPatrick}
+%% IMPORTANT
+%% If your username contains one of the following characters:
+%%      # $ ~ _ ^ % { } &
+%% then this character must be preceded by a backslash \
+%% for example: if your user name is math_genius, then the line below should be
+%% \username{math\_genius}
+
+\username{ruiqiu2000}
+
+%% Enter your USAMTS ID# here
+%% Example: \usamtsid{9999}
+\usamtsid{31020}
+
+%% Make sure that the year and round number are correct.
+%% Year 25 is the academic year 2013-14
+\usamtsyear{25}
+\usamtsround{1}
+
+%%
+%% DO NOT ALTER THE FOLLOWING LINE
+\begin{document}
+%% DO NOT ALTER THE PREVIOUS LINE
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% All solutions go in between the \begin{solution} and
+%% the \end{solution} corresponding to the problem
+%% number.  
+%%
+%% For example, suppose Problem 2 is 
+%% "Solve for x: x + 3 = 5".
+%% Your solution would look like this:
+%%
+%% \begin{solution}{2}
+%% If $x+3=5$, then subtract 3 from both
+%% sides of the equation to get $x=5-3=2$, so the 
+%% solution is $x=2$.
+%% \end{solution}
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{solution}{1} 
+\end{solution}
+
+\begin{solution}{2}
+We have our six numbers, $x, y, z, x-y, y-z, x-z$, all of which are prime.
+Firstly, $x, y$, and $z$ must be distinct. If they are not distinct, then one 
+of $x-y, y-z,$ or $x-z$ must not be zero, which is not a postive integer.
+Let us then split this problem into two cases:
+
+\textbf{1. None of $x, y, z$ are $2$}
+
+If this is true, then $x, y$ and $z$ must be odd, as there are no even primes 
+other than $2$.
+However, this means that $x-y, y-z, x-z$ must be even, as they are the result 
+of subtracting two odd numbers.
+Therefore, $x-y$ and $y-z$ must both be $2$, since it is the only even prime.
+However, if
+
+\begin{center}
+$\begin{cases} x-y = 2 \\ y - z = 2 \end{cases}$
+\end{center}
+
+
+Then
+
+\begin{align*}
+x - z &= (x - y) + (y - z)\\
+&= 2 + 2\\
+&= 4
+\end{align*}
+
+Therefore, $x-z$ is not prime, and therefore, if $x, y$ and $z$ are not $2$, 
+then at least one of $x-y, y-z$ or $x-z$ is not prime.
+
+\textbf{2. one of $x, y, z$ is $2$}
+We know that $z$ must be $2$, as $x-z > 0$ and $y-z > 0$, $x > z$ and $y > z$, 
+and $2$ is the smallest prime.
+Because we know $z = 2$, $x-2$ and $y-2$ must be prime. Additionally, $x$ and 
+$y$ are odd, as they are distinct from $z$ and $2$ is the only even prime. 
+Therefore, $x-y$ is even, as it is the result of subtracting two odd numbers. 
+The only solution for $x-y$ is therefore, $2$, and therefore, $x = y + 2$
+
+Since $x = y + 2$ and $y-2$ must be prime, $x-4$ must be prime. 
+
+$x, x-2$ and $x-4$ must all be prime. But this is impossible, as $x, x-2$ and 
+$x-4$ are all distinct $\bmod{3}$, and therefore by pidgeonhole principle, one 
+of them is divisible by $3$
+
+Therefore, there are no triplets $(x, y, z)$ such that $x, y, z, x-y, y-z, x-z$ 
+are all prime.
+
+\end{solution}
+
+\begin{solution}{3} %TODO: revise this.
+a.
+Let us first prove that after selecting any one person to be next in line, all 
+of the people who are shorter than that person and not previously in the line
+must also be in the line of the line to be in almost-perfect order.
+Let us use proof by contradition: 
+Let us assume that some person has been selected, let us call them X, such that 
+they are taller than the person before them, Let us call them Y and that
+there are people who are shorter than Y who are not currently in the line
+Firstly, examine the shortest person not currently in the line. This person must 
+come after the person 5 inches taller than them. Any other person is at least
+10 inches greater in height, which is not allowed under almost-perfect order. 
+However, this second person must come after the person 5 inches taller than him,
+as everyone else must either come after this person, and one cannot be both 
+simultaniously before and after a certain person in a line, 
+or 10 or more inches taller than this person, which is not allowed under 
+almost-perfect order. This reasoning repeats up until the person who is
+5 inches taller than Y. This person cannot be placed after any person, as every 
+other person must either be placed after this person by the reasoning above, or 
+is already in line.
+This means that this person cannot be placed in the line, and therefore, this 
+line cannot be completed with everyone in the line and in almost-perfect
+order. This means that after selecting any person and placing them in the line, 
+unless the person who is 5 inches shorter than them is already in the line, we 
+must select the person who is 5 inches shorter than them, and place them in the 
+line, then apply this rule to the newly placed person, in essence placing anyone
+who is shorter than the first selected person and not already in line after them in line.
+
+
+The number of ways to count this can be found with recursion. In order to count the number of ways to place x people, all spaced by 5, into a line,
+picking the shortest person reduces it to a line of 0 people, picking the second-shortest person reduces it to a line of one person, picking the third-shortest person reduces it to a line of 2 people, and so on until picking the tallest person results in a line of $x-1$
+So if we define $f(x)$ as the number of ways to do this, we get
+
+$
+f(x) = \sum\limits_{i = 0}^{x-1} f(i)
+$
+
+Which, for 10 people, evaluates to 34
+b.
+The previous problem can be applied to this problem with the exception of the 
+person with height 164. Let us handle the problem
+by splitting it into two cases
+
+\textbf{1. The first person of 164 and 165 selected is 164}
+
+In this case, either the next-selected number is 165, in which case there is 1 
+way to order the people greater
+than 165, and there are  $2^{8}$ ways to order the people less than 165, From 
+the previous problem. However, if the next number selected is 170, then 
+we have 1 way to order the numbers above 170, and $2^{9}$ ways to order the 
+numbers below 170. From the previous problem, if the next-selected number
+is not one of these two numbers, we cannot complete the line in almost-perfect 
+order.
+
+\textbf{2. The first person of 164 and 165 selected is 165} 
+
+In this case, either the next-selected number is 164, in which case there is 1 
+way to order the people greater
+than 164, and there are  $2^{8}$ ways to order the people less than 164, From 
+the previous problem. However, if the next number selected is 170, then 
+we have 1 way to order the numbers above 170, and $2^{9}$ ways to order the 
+numbers below 170. From the previous problem, if the next-selected number
+is not one of these two numbers, we cannot complete the line in almost-perfect 
+order.
+
+The grand total then is $2^{8} + 2^{9} + 2^{8} + 2^{9} = 1536$  %check this 
+answer
+\end{solution}
+\begin{solution}{4}
+%% Solution to Problem 4 goes here
+\end{solution}
+
+\begin{solution}{5}
+Firstly, let us prove that all $a_i$, where $i\geq2$, is always equal to $a_{i+2}$. This can be done using induction:
+
+Base Case: Firstly, $a_3 = a_5$, as $a_3 = a_{a_2} = a_5$. Since $a_5 = a_{3+2}$, we have our base case.
+
+Inductive Step:
+Assume we know that $a_{n-1} = a_{n+1}$. We also know that $a_{n+2} = a_{a_{n+1}} = a_{a_{n-1}} = a_n$.
+Therefore, we know that $a_i = a_{i+2}$ for all $i\geq2$.
+
+Now, we know that $a_{2014} = 2015$, which means all $a_n$ where $n$ is both even and greater than 3 is 2015, as $a_{2012} = a_{2014}, a_{2010} = a_{2012}$, etc. 
+Additionally, since $a_{2016} = a_{a_{2015}}$, and$ a_{2016} = a_{2015}$, we have that $a_{a_{2015}} = 2015$
+Also, let us show that since $a_i = a_{i+2}$, all $a_i$ where i is odd and greater than or equal to 2 are equal.
+
+Let us split this into 4 cases:
+
+Case 1: $a_{2015}$ is an even number greater than 3
+
+In this case, $a_{a_{2015}} = a_i$, where i is even and greater than 3. This means that $i=2015$, as that is true of all $a_i$ satisfying the previous conditions, as stated above.
+
+Case 2: $a_{2015}$ is an odd number greater than 2
+
+If $a_{2015} = i$ where i is odd and greater than 2, then $a_{2016} = a_{a_{2015}} = a_i$. Additionally, since $i$ is odd and greater than 2, $a_i$
+
+Case 3: $a_{2015} = 2$
+
+If $a_{2015} = 2$, then $a_{2016} = a_{a_{2015}} = a_2 = 5$, but we know that $a_{2016} = 2015$, so $a_{2015}$ cannot equal 2.
+
+Case 4: $a_{2015} = 1$
+
+If $a_{2015} = 1$, then $a_{2016} = a_{a_{2015}} = a_1$. Therefore, since $a_{2016} = 2015$, we know that $a_1 = 2015$.
+From that, $a_2 = a_{a_1} = a_{2015} = 1$, but we know that $a_2 = 5$. Therefore, $a_{2015}$ cannot equal 1. 
+
+Therefore, $a_{2015}$ is any even number greater than 3
+
+\end{solution}
+
+%%
+%% DO NOT ALTER THE FOLLOWING COMMAND
+\end{document}
+%% DO NOT ALTER THE PREVIOUS COMMAND
+%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%                                          %%
+%% You may want to run LaTeX on this file   %%
+%% to make sure that it compiles correctly  %%
+%% before you submit it.                    %%
+%%                                          %%
+%% If you run LaTeX on this file before     %%
+%% entering any solutions, the output file  %%
+%% will be blank.  This is normal.          %%
+%%                                          %%
+%% Make sure that the file usamts.tex is    %%
+%% in the same directory as this file.      %%
+%% If the compiler hangs or asks for        %%
+%% fancyhdr.sty when you compile, then go   %%
+%% to the My Forms portion of My USAMTS     %%
+%% at www.usamts.org to download the        %%
+%% fancyhdr.sty file.                       %%
+%%                                          %%
+%% Questions?  Problems?  Go to the LaTeX   %%
+%% forum on www.artofproblemsolving.com     %%
+%%                                          %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
